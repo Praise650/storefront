@@ -22,6 +22,11 @@ jobs:
     name: Lint, type-check, tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    environment: dev
+    env:
+      NEXT_PUBLIC_SALEOR_API_URL: ${{ vars.SALEOR_API_URL }}
+      NEXT_PUBLIC_STOREFRONT_URL: ${{ vars.STOREFRONT_URL }}
+      NEXT_PUBLIC_DEFAULT_CHANNEL: ${{ vars.DEFAULT_CHANNEL }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4                 # pnpm version from package.json "packageManager"
